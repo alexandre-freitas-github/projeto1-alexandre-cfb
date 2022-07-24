@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso CFB</title>
+</head>
+<body>
+    <h3>Usando getElementById value e innerHTML</h3>
+    <p id="texto">getElementById e innerHTML</p>
+    <input type="text" id="cxtexto" value="getElementById e innerHTML">
+    <p >---------------------------------------------</p>
+    
+    <h3>Mudando a cor usando o getElementsByTagName e apartir da seleção geral "*"</h3>
+    <p class="titulo">getElementsByTagName 1</p>
+    <p class="titulo">getElementsByTagName 2</p>
+    <p class="titulo">getElementsByTagName 3</p>
+    <p >---------------------------------------------</p>
+</body>
+<script>
+
+    document.write("<h3>Exibindo Matriz</h3>");
+    var mochila = new Array();
+
+    var item1=["Corda",2],
+        item2=["Faca",1],
+        item3=["Cura",5],
+        item4=["Prego",35];
+
+    mochila.push(item1);
+    mochila.push(item2);
+    mochila.push(item3);
+    mochila.push(item4);
+
+    document.write(mochila[0][0] + " - " + mochila[0][1] + "<br>");
+    document.write(mochila[1][0] + " - " + mochila[1][1] + "<br>");
+    document.write(mochila[2][0] + " - " + mochila[2][1] + "<br>");
+    document.write(mochila[3][0] + " - " + mochila[3][1] + "<br>");
+    document.write("---------------------------------------------");
+    document.write("<br>");
+    /*
+    try{
+        document.writi("CFB CURSOS");
+    }catch(e){
+        document.write("ERRO");
+    }
+
+    document.write("<br>");
+
+    var num;
+    try{
+        num=prompt("Digite um valor:");
+        if(num>10){
+        throw new Error("Valor inválido");
+        }
+        document.write("Valor: "+num);
+    }catch(e){
+        document.write("ERRO: " + e.message);
+    }
+
+    document.write("<br>");
+
+    var num;
+    try{
+        num=prompt("Digite um valor:");
+        if(num>10){
+        throw new Error("Valor inválido");
+        }
+    }catch(e){
+        console.log("ERRO: " + e.message);
+        num=10;
+    }finally{
+        document.write("Valor: "+num);
+    }
+    */
+    //Usando getElementById value e innerHTML
+    var cxt=document.getElementById("texto").innerHTML="Mudar o p usando InnerHTML";
+    var cxt2=document.getElementById("cxtexto").value="Mudar o input usando value";
+   
+    document.write("<h3>Usando getElementsByTagName</h3>");
+    //Selecionando a tag <p> e o índice 2, ou seja, o segundo <p> do html
+    var tagsP = document.getElementsByTagName("p");
+    document.write(tagsP[2].innerHTML);
+    document.write("<br>");
+    //Outro método
+    var tagsP2 = document.getElementsByTagName("p")[3];
+    document.write(tagsP2.innerHTML);
+
+    //O "*" (asterisco) seleciona todas as tags e não uma específica
+    //Mudando a cor da tag 11
+    var tags = document.getElementsByTagName("*");
+    tags[13].style.color="#f00";
+    //Exibindo com o query a tag p índice 0
+    document.write("<h3>Usando querySelectorAll</h3>");
+    var ps=document.querySelectorAll("p");
+    document.write(ps[0].innerHTML);
+    document.write("<h3>Usando querySelectorAll</h3>");
+    var elementos = document.querySelectorAll(".titulo");
+    for(var i = 0;i<elementos.length;i++){
+        document.write(elementos[i].innerHTML+"<br>");
+    }
+    // var elementos = document.querySelectorAll("div.quadro > p"); 
+    //fazendo isso apontamos para a div com classe quadro e para os 
+    //elementos p dentro dela
+    
+
+    </script>
+</html>
